@@ -18,8 +18,8 @@
                 <img src="https://www.masaischool.com/img/navbar/logo.svg" alt="">
             </div>
             <div>
-                <p>Create Courses &#128214;</p>
-                <p>Create LECTURE </p>
+                <p onclick="openButton('.creatCouresSection')">Create Courses &#128214;</p>
+                <p onclick="openButton('.creatCouresLectureSection')">Create LECTURE </p>
                 <p onclick="openButton('.creatAdminSection')">Create Admin</p>
                 <p onclick="openButton('.creatStudentSection')">Create Student</p>
                 <span>
@@ -40,20 +40,6 @@
         <h1>Hello <span id="usernameDisplayOption"></span> ! Welcome to super admin panel</h1>
  
     </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <!--  viewProfileSection-->
     <section class="viewProfileSection userfillform">
@@ -189,6 +175,72 @@
         </div>
     </section>
 
+    <!-- CREATE COURSES -->
+    <section class="creatCouresSection userfillform">
+        <span class="closeButtonOption" onclick="closeButton('.creatCouresSection')">X</span>
+        <div class="box">
+            <h1>CREATE NEW COURSES</h1>
+            <div class="form">
+                <label for="">Enter courses</label>
+                <input type="text" placeholder="Enter courses" id="NCname" value="" required="required">
+                <label for="">Courses fees</label>
+                <input type="number" placeholder="Enter courses fees" id="CFreat" value="" required="required">
+                <label for="">Enter about courses</label>
+                <input type="text" placeholder="Enter about courses" id="ACdis" value="" required="required">
+
+                <input type="submit" value="Create Courses" onclick="creatCouresFun()" />
+            </div>
+        </div>
+
+        <div class="dataTableAdminList">
+            <table>
+                <thead>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Fees</th>
+                    <th>About</th>
+                    <th>Remove</th>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <!-- CREATE Lecture COURSES creatCouresLectureSection-->
+    <section class="creatCouresLectureSection userfillform">
+        <span class="closeButtonOption" onclick="closeButton('.creatCouresLectureSection')">X</span>
+        <div class="box">
+            <h1>ADD NEW LECTURE</h1>
+            <div class="form">
+                <label for="">Select Courses</label>
+                <select id="selectCoursesOption">
+                </select>
+                <label for="">Enter Lecture</label>
+                <input type="text" placeholder="Enter Lecture Name" id="NCLname" value="" required="required">
+                <label for="">Lecture url</label>
+                <input type="url" placeholder="Enter courses fees" id="CLUreat" value="" required="required">
+                <label for="">Enter about Lecture</label>
+                <input type="text" placeholder="Enter about courses" id="CLDdis" value="" required="required">
+
+                <input type="submit" value="Create Courses" onclick="creatcouresLectureUserShowList()" />
+            </div>
+        </div>
+
+        <div class="dataTableAdminList">
+            <table>
+                <thead>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Url</th>
+                    <th>About</th>
+                    <th>Courses</th>
+                    <th>Remove</th>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </section>
 
 </body>
 <script src="../server/js/checkuserloginornot.js"></script>

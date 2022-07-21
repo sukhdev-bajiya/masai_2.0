@@ -88,12 +88,13 @@ body {
     position: fixed;
     top: 70px;
     right: 25px;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 800;
     color: white;
-    padding: 5px 15px;
+    padding: 5px 12px;
     background-color: #ED0331;
     border-radius: 50px;
+    cursor: pointer;
 }
 
 .userfillform .box {

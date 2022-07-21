@@ -3,6 +3,7 @@ function openButton(val) {
   document.querySelector(".updateProfileSection").style.display = "none";
   document.querySelector(".updatePasswordSection").style.display = "none";
   document.querySelector(".creatStudentSection").style.display = "none";
+  document.querySelector(".creatCouresLectureSection").style.display = "none";
   document.querySelector(val).style.display = "block";
 }
 

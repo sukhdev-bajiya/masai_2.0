@@ -21,6 +21,17 @@
       "dateOfBirth": "",
       "userLogID": "MSU_1658387596924",
       "id": 2
+    },
+    {
+      "name": "",
+      "password": "",
+      "email": "",
+      "phone": "",
+      "gender": "male",
+      "address": "",
+      "dateOfBirth": "",
+      "userLogID": "MSU_1658403034059",
+      "id": 3
     }
   ],
   "superAdminLoginData": [
@@ -62,7 +73,35 @@
       "userLogID": "MAU_1658387604865",
       "id": 2
     }
+  ],
+  "coures": [
+    {
+      "coursesName": "farent end",
+      "coursesFees": "150000",
+      "coursesAbout": "do that",
+      "coursesLecture": [
+        {
+          "lectureName": "hvjdf;szjfsakl;",
+          "lectureUrl": "hlkjh;klu;l",
+          "lectureAdout": "kh;lkj",
+          "id": 1658408318886
+        }
+      ],
+      "id": 1
+    },
+    {
+      "coursesName": "back end",
+      "coursesFees": "789546",
+      "coursesAbout": "jhkhlk;",
+      "coursesLecture": [
+        {
+          "lectureName": "gcmk,bgkhj",
+          "lectureUrl": "hglkhj;li",
+          "lectureAdout": "glh;kl",
+          "id": 1658408337989
+        }
+      ],
+      "id": 2
+    }
   ]
 }
-
-
