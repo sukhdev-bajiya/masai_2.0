@@ -1,0 +1,22 @@
+,
+  "courses": [
+    {
+      "name": "Full Stack",
+      "userLogID": "CLM_1658383369424",
+      "coursesList": [
+        {
+          "name": "akash",
+          "userLogID": "CLI_1658383369424",
+          "coursesList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+          ]
+        }
+      ],
+      "id": 1
+    }
+  ]

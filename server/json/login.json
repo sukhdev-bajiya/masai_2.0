@@ -1,0 +1,68 @@
+{
+  "studentLoginData": [
+    {
+      "name": "ayush",
+      "password": "123456",
+      "email": "ayush@gmail.com",
+      "phone": "1234567898",
+      "gender": "male",
+      "address": "Rachi",
+      "dateOfBirth": "2022-07-21",
+      "userLogID": "MSU_1658383542684",
+      "id": 1
+    },
+    {
+      "name": "",
+      "password": "",
+      "email": "",
+      "phone": "",
+      "gender": "male",
+      "address": "",
+      "dateOfBirth": "",
+      "userLogID": "MSU_1658387596924",
+      "id": 2
+    }
+  ],
+  "superAdminLoginData": [
+    {
+      "id": 1,
+      "name": "Sukhdev bajiya",
+      "userName": "superadmin",
+      "password": "987654",
+      "email": "superadmin@masai.com",
+      "phone": "9876543210",
+      "dateOfBirth": "2022-07-21",
+      "userLogID": "SAU_1658319733856",
+      "gender": "male",
+      "address": "Jaipur"
+    }
+  ],
+  "adminLoginData": [
+    {
+      "name": "akash",
+      "userName": "admin",
+      "password": "123456",
+      "email": "akash@gmail.com",
+      "phone": "9876543202",
+      "gender": "male",
+      "address": "Pune",
+      "dateOfBirth": "2022-07-21",
+      "userLogID": "MAU_1658383369424",
+      "id": 1
+    },
+    {
+      "name": "",
+      "userName": "",
+      "password": "",
+      "email": "",
+      "phone": "",
+      "gender": "male",
+      "address": "",
+      "dateOfBirth": "",
+      "userLogID": "MAU_1658387604865",
+      "id": 2
+    }
+  ]
+}
+
+

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Deshbord</title>
+    <link rel="stylesheet" href="../assist/style/dashbord.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <!-- navbar -->
+    <section class="navbarSection2">
+        <nav class="navbarDiv">
+            <div>
+                <img src="https://www.masaischool.com/img/navbar/logo.svg" alt="">
+            </div>
+            <div>
+                <span>
+                    <p onclick="profileOptionsShowFun()">profile </p><i class="fa fa-user"
+                        onmouseenter="profileOptionsShowFun()"></i>
+                </span>
+            </div>
+        </nav>
+        <div id="profile-container">
+            <p onclick="openButton('.viewProfileSection')">View profile</p>
+            <p onclick="openButton('.updateProfileSection')">Update profile</p>
+            <p onclick="openButton('.updatePasswordSection')">Change password</p>
+            <p onclick="logoutfunforall()">Logout</p>
+        </div>
+    </section>
+    <section class="dashbordoptionPartSection">
+        <div class="seeTimeNow"></div>
+        <h1>Hello <span id="usernameDisplayOption"></span> ! Welcome to our learning platform</h1>
+ 
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--  viewProfileSection-->
+    <section class="viewProfileSection userfillform">
+        <span class="closeButtonOption" onclick="closeButton('.viewProfileSection')">X</span>
+        <div class="box" id="viewProfileData">
+
+        </div>
+    </section>
+    <!--  updateProfileSectionn-->
+    <section class="updateProfileSection userfillform">
+        <span class="closeButtonOption" onclick="closeButton('.updateProfileSection')">X</span>
+        <div class="box">
+            <h1>Update Profile</h1>
+            <div class="form">
+                <label for="">Enter your name</label>
+                <input type="text" placeholder="Enter your name" id="name" value="" required="">
+                <label for="">Gender</label>
+                <select id="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+                <label for="">Date of birth</label>
+                <input type="date" id="dateOfBirth" value="" required="">
+                <label for="">Enter address</label>
+                <input type="text" placeholder="Enter your address" id="address" value="" required="">
+
+                <input id="signup" type="submit" value="Update Profile" onclick="updateprofiledata()" />
+            </div>
+        </div>
+    </section>
+    <!-- updatePasswordSection -->
+    <section class="updatePasswordSection userfillform">
+        <span class="closeButtonOption" onclick="closeButton('.updatePasswordSection')">X</span>
+        <div class="box">
+            <h1>Update Password</h1>
+            <div class="form">
+                <label for="">Old Password</label>
+                <input type="password" placeholder="Old password" id="oldpasscheck" value="">
+                <label for="">New Password</label>
+                <input type="password" placeholder="New password" id="newpasscheck" value="">
+                <label for="">Conform Password</label>
+                <input type="password" placeholder="Conform password" id="cnewpasscheck" value="">
+
+                <input id="signup" type="submit" value="Update Password" onclick="updatepassworduserfun()" />
+            </div>
+        </div>
+    </section>
+
+</body>
+<script src="../server/js/checkuserloginornot.js"></script>
+<script src="../server/js/studentpart.js"></script>
+<script src="../server/js/userprofileandproother.js"></script>
+
+</html>
