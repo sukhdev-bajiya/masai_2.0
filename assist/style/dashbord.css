@@ -158,7 +158,8 @@ body {
 
 .userfillform .form input[type="submit"] {
     margin-top: 25px;
-    background: #ecf0f3;
+    color: blue;
+    background-image: linear-gradient(rgba(255, 0, 0, 0.212), rgba(0, 0, 255, 0.205));
     margin-bottom: 25px;
 }
 
@@ -402,6 +403,8 @@ body {
 
 .masaipaymentGateway input[type="submit"] {
     margin: 25px;
+    color: blue;
+    background-image: linear-gradient(rgba(255, 0, 0, 0.212), rgba(0, 0, 255, 0.205));
 }
 
 .masaipaymentGateway input[type="submit"]:hover {

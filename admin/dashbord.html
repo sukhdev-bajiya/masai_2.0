@@ -6,8 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Deshbord</title>
-    <link rel="icon" sizes="32x32" href="https://d27028dliefpk3.cloudfront.net/assets/favicon/favicon-32x32.png" class="jsx-397bb7cff0cecce7">
-        <link rel="stylesheet" href="../assist/style/dashbord.css">
+    <link rel="icon" sizes="32x32" href="https://d27028dliefpk3.cloudfront.net/assets/favicon/favicon-32x32.png"
+        class="jsx-397bb7cff0cecce7">
+    <link rel="stylesheet" href="../assist/style/dashbord.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -37,7 +38,14 @@
     <section class="dashbordoptionPartSection">
         <div class="seeTimeNow"></div>
         <h1>Hello <span id="usernameDisplayOption"></span> ! Welcome to admin panel</h1>
- 
+        <div class="dashbordclassPartDiv">
+            <div id="myCourses">
+                <h1>Courses :</h1>
+                <div id="seeAllClassMyCoursesVideo">
+
+                </div>
+            </div>
+        </div>
     </section>
 
     <!--  viewProfileSection-->
@@ -79,8 +87,8 @@
                 <input type="password" placeholder="Old password" id="oldpasscheck" value="">
                 <label for="">New Password</label>
                 <input type="password" placeholder="New password" id="newpasscheck" value="">
-                <label for="">Conform Password</label>
-                <input type="password" placeholder="Conform password" id="cnewpasscheck" value="">
+                <label for="">Confirm Password</label>
+                <input type="password" placeholder="Confirm password" id="cnewpasscheck" value="">
 
                 <input id="signup" type="submit" value="Update Password" onclick="updatepassworduserfun()" />
             </div>
@@ -134,13 +142,13 @@
         <div class="box">
             <h1>ADD NEW LECTURE</h1>
             <div class="form">
-                <label for="">Select Courses</label>
+                <label for="">Select Course</label>
                 <select id="selectCoursesOption">
                 </select>
                 <label for="">Enter Lecture</label>
                 <input type="text" placeholder="Enter Lecture Name" id="NCLname" value="" required="required">
                 <label for="">Lecture Video ID</label>
-                <input type="url" placeholder="Enter courses fees" id="CLUreat" value="" required="required">
+                <input type="url" placeholder="Enter Lecture Video ID" id="CLUreat" value="" required="required">
                 <label for="">Enter about Lecture</label>
                 <input type="text" placeholder="Enter about courses" id="CLDdis" value="" required="required">
 
@@ -163,7 +171,19 @@
             </table>
         </div>
     </section>
+    <section class="openCoursesvideoclassgroup userfillform">
+        <span class="closeButtonOption" onclick="closeButton('.openCoursesvideoclassgroup')">X</span>
+        <div id="openCoursesvideoclasses">
 
+        </div>
+    </section>
+
+    <section class="playvidothimclassgroup userfillform">
+        <span class="closeButtonOption" onclick="closeButton('.playvidothimclassgroup')">X</span>
+        <div id="playvidothim">
+
+        </div>
+    </section>
 </body>
 <script src="../server/js/checkuserloginornot.js"></script>
 <script src="../server/js/adminpartdata.js"></script>

@@ -1,7 +1,47 @@
+setInterval(() => {
+  checkUserOrNOt()
+}, 2000);
+checkUserOrNOt()
+function checkUserOrNOt(){
+  let flag = JSON.parse(localStorage.getItem("myuserpasscode"));
+  if (flag == null || flag.length == 0 || flag == undefined) {
+    window.open("./login.html", "_self");
+  }
+  checkuserloginornot();
+
+  // console.log(flag[1].slice(0, 3)=="SAU");
+  async function checkuserloginornot() {
+    try {
+      let mycheck = flag[1].slice(0, 3);
+      let url;
+      if (mycheck === "MAU") {
+        url = `http://localhost:3000/adminLoginData/${flag[0]}`;
+      }else{
+        window.open("./login.html", "_self");
+      }
+      let res = await fetch(url);
+      users = await res.json();
+      if (users.userLogID != flag[1]) {
+        window.open("./login.html", "_self");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+};
+function logoutfunforall() {
+  localStorage.clear();
+  window.open("./login.html", "_self");
+}
+
+
 function openButton(val) {
   document.querySelector(".viewProfileSection").style.display = "none";
   document.querySelector(".updateProfileSection").style.display = "none";
   document.querySelector(".updatePasswordSection").style.display = "none";
+  document.querySelector(".openCoursesvideoclassgroup").style.display = "none";
+  document.querySelector(".playvidothimclassgroup").style.display = "none";
   document.querySelector(".creatStudentSection").style.display = "none";
   document.querySelector(".creatCouresLectureSection").style.display = "none";
   document.querySelector(val).style.display = "block";
@@ -11,6 +51,103 @@ function closeButton(val) {
   document.querySelector(val).style.display = "none";
 }
 let tableBodyAdminpa = document.querySelectorAll("tbody");
+
+
+
+// ===================================================
+// ===================================================
+//  My Courses
+// ===================================================
+// ===================================================
+
+dishplayDataAllCourses1();
+async function dishplayDataAllCourses1() {
+  document.getElementById("seeAllClassMyCoursesVideo").innerHTML = "";
+  try {
+    let res = await fetch(`http://localhost:3000/coures`);
+    let users = await res.json();
+
+    users.forEach((ele) => {
+      let mydata = `
+      <h2>${ele.coursesName}</h2>
+      <h5>${ele.coursesAbout.slice(0, 100)}....</h5>
+      <span></span>
+      <div>
+      <button onclick="opeanclassesmycourses(${
+        ele.id
+      })">Go to Lectures &#128214;</button>
+      </div>
+      <span></span>
+      `;
+      let ContantCont = document.createElement("div");
+      ContantCont.innerHTML = mydata;
+        document
+          .getElementById("seeAllClassMyCoursesVideo")
+          .append(ContantCont);
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function opeanclassesmycourses(id) {
+  try {
+    document.getElementById("openCoursesvideoclasses").innerHTML = "";
+    openButton(".openCoursesvideoclassgroup")
+    let res = await fetch(`http://localhost:3000/coures/${id}`);
+    let users = await res.json();
+    users.coursesLecture.forEach((ele, ind) => {
+      let mydata = `
+      <h2>${ele.lectureName}</h2>
+      <h5>${ele.lectureAdout.slice(0, 100)}....</h5>
+      <span></span>
+      <div>
+      <button onclick="openplayerclass(${users.id}, ${ind})">Play Class &#128214;</button>
+      </div>
+      <span></span>
+      `;
+      let ContantCont = document.createElement("div");
+      ContantCont.innerHTML = mydata;
+
+      document.getElementById("openCoursesvideoclasses").append(ContantCont);
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
+async function openplayerclass(id, ind){
+  try {
+    document.getElementById("openCoursesvideoclasses").innerHTML = "";
+    openButton(".playvidothimclassgroup");
+    let res = await fetch(`http://localhost:3000/coures/${id}`);
+    let users = await res.json();
+
+    let val = users.coursesLecture[ind].lectureUrl
+
+      document.getElementById("playvidothim").innerHTML=`
+      <h1>${ind+1}. ${users.coursesLecture[ind].lectureName} - [${users.coursesName}]</h1>
+      <iframe width="842" height="455" src="https://www.youtube.com/embed/${val}" title="Boost your career with Part-Time courses at Masai" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      
+      <p>${users.coursesLecture[ind].lectureAdout}</p>`;
+  } catch (error) {
+    console.log(error);
+  }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 // =================================================
 // =================================================

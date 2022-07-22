@@ -21,6 +21,17 @@
       "dateOfBirth": "2022-07-20",
       "userLogID": "MSU_1658420681193",
       "id": 2
+    },
+    {
+      "email": "demoa@gmail.com",
+      "phone": "987654",
+      "password": "123456",
+      "userLogID": "MSU_1658488243109",
+      "id": 3,
+      "name": "sukhdev bajiya",
+      "gender": "male",
+      "address": "jaipur",
+      "dateOfBirth": "2022-07-22"
     }
   ],
   "superAdminLoginData": [
@@ -58,7 +69,7 @@
       "coursesAbout": "Start your coding career and become an industry-ready Full Stack Web Developer in India's ever-growing technology job market.",
       "coursesFavorite": false,
       "coursesCart": false,
-      "coursesPrech": false,
+      "coursesPrech": true,
       "coursesLecture": [
         {
           "lectureName": "Intro java",
@@ -101,8 +112,8 @@
     {
       "coursesName": "Design",
       "coursesFees": "0",
-      "coursesAbout": "(< COMING SOON >) Become the catalyst that bridges the interaction between humans and computers by landing job roles in UI Design, UX Design, Product Design among many others.",
-      "coursesFavorite": true,
+      "coursesAbout": "Become the catalyst that bridges the interaction between humans and computers by landing job roles in UI Design, UX Design, Product Design among many others.",
+      "coursesFavorite": false,
       "coursesCart": false,
       "coursesPrech": true,
       "coursesLecture": [

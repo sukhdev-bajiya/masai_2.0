@@ -20,7 +20,7 @@
                 <img src="https://www.masaischool.com/img/navbar/logo.svg" alt="">
             </div>
             <div>
-                <p onclick="openButton('.creatCouresSection')">Create Courses &#128214;</p>
+                <p onclick="openButton('.creatCouresSection')">Create Course &#128214;</p>
                 <p onclick="openButton('.creatCouresLectureSection')">Create LECTURE </p>
                 <p onclick="openButton('.creatAdminSection')">Create Admin</p>
                 <p onclick="openButton('.creatStudentSection')">Create Student</p>
@@ -40,7 +40,14 @@
     <section class="dashbordoptionPartSection">
         <div class="seeTimeNow"></div>
         <h1>Hello <span id="usernameDisplayOption"></span> ! Welcome to super admin panel</h1>
+        <div class="dashbordclassPartDiv">
+            <div id="myCourses">
+                <h1>Courses :</h1>
+                <div id="seeAllClassMyCoursesVideo">
 
+                </div>
+            </div>
+        </div>
     </section>
 
     <!--  viewProfileSection-->
@@ -82,8 +89,8 @@
                 <input type="password" placeholder="Old password" id="oldpasscheck" value="">
                 <label for="">New Password</label>
                 <input type="password" placeholder="New password" id="newpasscheck" value="">
-                <label for="">Conform Password</label>
-                <input type="password" placeholder="Conform password" id="cnewpasscheck" value="">
+                <label for="">Confirm Password</label>
+                <input type="password" placeholder="Confirm password" id="cnewpasscheck" value="">
 
                 <input id="signup" type="submit" value="Update Password" onclick="updatepassworduserfun()" />
             </div>
@@ -181,16 +188,16 @@
     <section class="creatCouresSection userfillform">
         <span class="closeButtonOption" onclick="closeButton('.creatCouresSection')">X</span>
         <div class="box">
-            <h1>CREATE NEW COURSES</h1>
+            <h1>CREATE NEW COURSE</h1>
             <div class="form">
-                <label for="">Enter courses</label>
-                <input type="text" placeholder="Enter courses" id="NCname" value="" required="required">
-                <label for="">Courses fees</label>
-                <input type="number" placeholder="Enter courses fees" id="CFreat" value="" required="required">
-                <label for="">Enter about courses</label>
-                <input type="text" placeholder="Enter about courses" id="ACdis" value="" required="required">
+                <label for="">Enter course</label>
+                <input type="text" placeholder="Enter course" id="NCname" value="" required="required">
+                <label for="">Course fees</label>
+                <input type="number" placeholder="Enter course fees" id="CFreat" value="" required="required">
+                <label for="">Enter about course</label>
+                <input type="text" placeholder="Enter about course" id="ACdis" value="" required="required">
 
-                <input type="submit" value="Create Courses" onclick="creatCouresFun()" />
+                <input type="submit" value="Create Course" onclick="creatCouresFun()" />
             </div>
         </div>
 
@@ -214,17 +221,17 @@
         <div class="box">
             <h1>ADD NEW LECTURE</h1>
             <div class="form">
-                <label for="">Select Courses</label>
+                <label for="">Select Course</label>
                 <select id="selectCoursesOption">
                 </select>
                 <label for="">Enter Lecture</label>
                 <input type="text" placeholder="Enter Lecture Name" id="NCLname" value="" required="required">
                 <label for="">Lecture Video ID</label>
-                <input type="url" placeholder="Enter courses fees" id="CLUreat" value="" required="required">
+                <input type="url" placeholder="Enter Lecture Video ID" id="CLUreat" value="" required="required">
                 <label for="">Enter about Lecture</label>
-                <input type="text" placeholder="Enter about courses" id="CLDdis" value="" required="required">
+                <input type="text" placeholder="Enter about course" id="CLDdis" value="" required="required">
 
-                <input type="submit" value="Create Courses" onclick="creatcouresLectureUserShowList()" />
+                <input type="submit" value="Create Course" onclick="creatcouresLectureUserShowList()" />
             </div>
         </div>
 
@@ -235,7 +242,7 @@
                     <th>Name</th>
                     <th>Lecture Video ID</th>
                     <th>About</th>
-                    <th>Courses</th>
+                    <th>Course</th>
                     <th>Remove</th>
                 </thead>
                 <tbody>
@@ -243,7 +250,19 @@
             </table>
         </div>
     </section>
+    <section class="openCoursesvideoclassgroup userfillform">
+        <span class="closeButtonOption" onclick="closeButton('.openCoursesvideoclassgroup')">X</span>
+        <div id="openCoursesvideoclasses">
 
+        </div>
+    </section>
+
+    <section class="playvidothimclassgroup userfillform">
+        <span class="closeButtonOption" onclick="closeButton('.playvidothimclassgroup')">X</span>
+        <div id="playvidothim">
+
+        </div>
+    </section>
 </body>
 <script src="../server/js/checkuserloginornot.js"></script>
 <script src="../server/js/superadminotherpart.js"></script>
