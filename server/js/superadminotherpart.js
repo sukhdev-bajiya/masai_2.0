@@ -221,7 +221,6 @@ function creatCouresFunByOWN(user) {
   let coursesName = document.getElementById("NCname").value;
   let coursesFees = document.getElementById("CFreat").value;
   let coursesAbout = document.getElementById("ACdis").value;
-  let coursesLecture = [];
   if (coursesName != "" && coursesFees != "" && coursesAbout != "") {
     let listOrNOt = false;
     user.forEach((ele) => {
@@ -238,7 +237,10 @@ function creatCouresFunByOWN(user) {
           coursesName: coursesName,
           coursesFees: coursesFees,
           coursesAbout: coursesAbout,
-          coursesLecture: coursesLecture,
+          coursesFavorite: false,
+          coursesCart: false,
+          coursesPrech: false,
+          coursesLecture: [],
         }),
         headers: { "Content-Type": "application/json" },
       });
@@ -342,46 +344,20 @@ async function dishPlaycreatcouresLectureUserShowList() {
 function dishPlaydataTablecouresLectureListFun(users) {
   tableBodySupAdminpart[3].innerHTML = "";
   users.forEach((obj) => {
-    obj.coursesLecture.forEach((ele) => {
+    obj.coursesLecture.forEach((ele, ind) => {
       let val = `
           <td>${ele.id}</td>
           <td>${ele.lectureName}</td>
           <td>${ele.lectureUrl}</td>
           <td>${ele.lectureAdout}</td>
           <td>${obj.coursesName}</td>
-          <td><p onclick="dataTableCouresLectureListRemove('${ele.id}')">Remove</p></td>
+          <td><p onclick="dataTableCouresLectureListRemove(${obj.id}, ${ind})">Remove</p></td>
           `;
       let tr = document.createElement("tr");
       tr.innerHTML = val;
       tableBodySupAdminpart[3].append(tr);
     });
   });
-}
-
-async function dataTableCouresLectureListRemove(id) {
-  try {
-    let res = await fetch(`http://localhost:3000/coures`);
-    let users = await res.json();
-    dataTableCouresLectureListRemoveFunbyDFun(users, id);
-  } catch (err) {
-    console.log(err);
-  }
-}
-
-function dataTableCouresLectureListRemoveFunbyDFun(user, id) {
-  let objId;
-  let eleInd;
-  user.forEach((obj) => {
-    obj.coursesLecture.forEach((ele, ind) => {
-      if (ele.id == id) {
-        objId = obj.id;
-        eleInd = ind;
-      }
-    });
-  });
-  console.log(objId, eleInd);
-
-  tableCouresLectureListRemoveFunbyDFun(objId, eleInd);
 }
 async function tableCouresLectureListRemoveFunbyDFun(objId, eleInd) {
   try {

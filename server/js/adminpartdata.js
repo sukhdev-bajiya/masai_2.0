@@ -10,7 +10,7 @@ function openButton(val) {
 function closeButton(val) {
   document.querySelector(val).style.display = "none";
 }
-let tableBodyAdminpa = document.querySelector("tbody");
+let tableBodyAdminpa = document.querySelectorAll("tbody");
 
 // =================================================
 // =================================================
@@ -82,7 +82,7 @@ async function creatStudentUserShowList() {
 
 function dataTableStudentListFun(users) {
   // console.log(users)
-  tableBodyAdminpa.innerHTML = "";
+  tableBodyAdminpa[0].innerHTML = "";
   users.forEach((ele) => {
     // console.log(ele);
     let val = `
@@ -95,7 +95,7 @@ function dataTableStudentListFun(users) {
         `;
     let tr = document.createElement("tr");
     tr.innerHTML = val;
-    tableBodyAdminpa.append(tr);
+    tableBodyAdminpa[0].append(tr);
   });
 }
 function dataTableStudentListRemove(id) {
@@ -117,5 +117,103 @@ async function dishplayallDataSuFun() {
     document.getElementById("usernameDisplayOption").innerHTML=users.name;
   } catch (err2) {
     console.log(err2);
+  }
+}
+
+async function creatcouresLectureUserShowList() {
+  try {
+    let id = document.getElementById("selectCoursesOption").value;
+    if (id != "") {
+      let res = await fetch(`http://localhost:3000/coures/${id}`);
+      let users = await res.json();
+      dataTablecouresLectureListFun(users.coursesLecture);
+    } else {
+      alert("Select Coures");
+    }
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+function dataTablecouresLectureListFun(users) {
+  let id = document.getElementById("selectCoursesOption").value;
+  let lectureName = document.getElementById("NCLname").value;
+  let lectureUrl = document.getElementById("CLUreat").value;
+  let lectureAdout = document.getElementById("CLDdis").value;
+  if (id != "" && lectureName != "" && lectureUrl != "") {
+    let obj = {
+      lectureName: lectureName,
+      lectureUrl: lectureUrl,
+      lectureAdout: lectureAdout,
+      id: Date.now(),
+    };
+
+    users.push(obj);
+    fetch(`http://localhost:3000/coures/${id}`, {
+      method: "PATCH",
+      body: JSON.stringify({
+        coursesLecture: users,
+      }),
+      headers: { "Content-Type": "application/json" },
+    });
+  } else {
+    alert("Enter Lecture Data");
+  }
+}
+
+dishPlaycreatcouresLectureUserShowList();
+async function dishPlaycreatcouresLectureUserShowList() {
+  try {
+    let res = await fetch(`http://localhost:3000/coures`);
+    let users = await res.json();
+    dishPlaydataTablecouresLectureListFun(users);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+function dishPlaydataTablecouresLectureListFun(users) {
+  tableBodyAdminpa[1].innerHTML = "";
+  users.forEach((obj) => {
+    obj.coursesLecture.forEach((ele, ind) => {
+      let val = `
+          <td>${ele.id}</td>
+          <td>${ele.lectureName}</td>
+          <td>${ele.lectureUrl}</td>
+          <td>${ele.lectureAdout}</td>
+          <td>${obj.coursesName}</td>
+          <td><p onclick="dataTableCouresLectureListRemove(${obj.id}, ${ind})">Remove</p></td>
+          `;
+      let tr = document.createElement("tr");
+      tr.innerHTML = val;
+      tableBodyAdminpa[1].append(tr);
+    });
+    let optionSet = document.createElement("option");
+    optionSet.setAttribute("value", `${obj.id}`);
+    optionSet.innerText = obj.coursesName;
+    document.getElementById("selectCoursesOption").append(optionSet);
+  });
+}
+
+async function dataTableCouresLectureListRemove(objId, eleInd) {
+  try {
+    let res = await fetch(`http://localhost:3000/coures/${objId}`);
+    let users = await res.json();
+
+    let newArr = users.coursesLecture;
+
+    newArr.splice(eleInd, 1);
+
+    fetch(`http://localhost:3000/coures/${objId}`, {
+      method: "PATCH",
+      body: JSON.stringify({
+        coursesLecture: newArr,
+      }),
+      headers: { "Content-Type": "application/json" },
+    });
+
+    dishPlaycreatcouresLectureUserShowList();
+  } catch (error) {
+    console.log(error);
   }
 }

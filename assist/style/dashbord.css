@@ -39,6 +39,10 @@ body {
     font-weight: 500;
     align-items: center;
 }
+.navbarDiv p:hover{
+    border-top: 2px solid #ED0331;
+    border-bottom: 2px solid #ED0331;
+}
 
 .navbarDiv i {
     font-size: 36px;
@@ -56,9 +60,11 @@ body {
     align-items: center;
     letter-spacing: 1.25px;
 }
-#profile-container p{
+
+#profile-container p {
     cursor: pointer;
 }
+
 #profile-container {
     position: absolute;
     display: none;
@@ -229,12 +235,194 @@ body {
 }
 
 
-.dashbordoptionPartSection h1{
+.dashbordoptionPartSection h1 {
     text-align: center;
     font-size: 40px;
     color: rgb(100, 100, 100);
 }
-#usernameDisplayOption{
-font-style: italic;
-color: black;
+
+#usernameDisplayOption {
+    font-style: italic;
+    color: black;
+}
+
+.dashbordclassPartDiv {
+    padding: 25px;
+    padding-top: 10px;
+}
+
+.dashbordclassPartDiv h1 {
+    text-align: start;
+    font-size: 25px;
+    color: purple;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.dashbordclassPartDiv h1:hover {
+    color: #ED0331;
+}
+.dashbordclassPartDiv>div>div ,
+#openCoursesvideoclasses>div,
+#seeAllClassMyCoursesAddCardVideo>div{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding-bottom: 60px;
+}
+
+.dashbordclassPartDiv>div>div>div,
+#openCoursesvideoclasses>div ,
+#seeAllClassMyCoursesAddCardVideo>div {
+    width: 290px;
+    height: 215px;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid rgba(128, 128, 128, 0.466);
+    background: #ecf0f3;
+    box-shadow: -3px -3px 7px #ffffff,
+        3px 3px 5px #ceced1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbarDiv a {
+    text-decoration: none;
+    color: black;
+}
+
+.dashbordclassPartDiv>div>div>div img,
+#openCoursesvideoclasses>div img,
+#seeAllClassMyCoursesAddCardVideo>div img{
+    margin-top: 3px;
+    width: 40px;
+    cursor: pointer;
+}
+.dashbordclassPartDiv>div>div>div h2,
+#openCoursesvideoclasses>div h2,
+#seeAllClassMyCoursesAddCardVideo>div h2{
+    margin: 0;
+    margin-top: 10px;
+}
+.dashbordclassPartDiv>div>div>div h5,
+#openCoursesvideoclasses>div h5,
+#seeAllClassMyCoursesAddCardVideo>div h5{
+    padding: 0 7px;
+    text-indent: 25px;
+    text-align: justify;
+}
+.dashbordclassPartDiv>div>div>div button,
+#openCoursesvideoclasses>div button,
+#seeAllClassMyCoursesAddCardVideo>div button{
+    padding: 5px 10px;
+    background: rgb(142, 187, 247);
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin: 3px;
+}
+.dashbordclassPartDiv>div>div>div button:hover,
+#seeAllClassMyCoursesAddCardVideo>div button:hover,
+#openCoursesvideoclasses>div button:hover{
+    background: rgb(0, 110, 255);
+    color: white;
+}
+.dashbordclassPartDiv>div>div>div span{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    background-color: #ED0331;
+    height: 3px;
+    width: 100%;
+}
+
+.dashbordclassPartDiv>div>div>div>div{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+#seeAllClassMyCoursesAddCardVideo,
+#openCoursesvideoclasses{
+    padding: 50px 25px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20;
+}
+#seeAllClassMyCoursesAddCardVideo>div>div,
+#openCoursesvideoclasses>div>div{
+    border-top: 2px solid #ED0331;
+    padding-top: 3px;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+#seeAllClassMyCoursesAddCardVideo>div,
+#openCoursesvideoclasses>div
+{
+    height: 225px;
+    width: 350px;
+}
+
+
+.masaipaymentGateway h1{
+    text-align: center;
+}
+.masaipaymentGateway .form {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    width: 40%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.masaipaymentGateway input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #b1acac;
+    font-size: 15px;
+    background-color: #ffffff;
+}
+
+.masaipaymentGateway label {
+    margin: 20px 0 5px 0;
+    font-size: 20px;
+    background-color: #fff;
+}
+
+.masaipaymentGateway .form p {
+    text-align: center;
+    font-size: small;
+    margin: 20px 0;
+    background-color: #fff;
+}
+
+.masaipaymentGateway input[type="submit"] {
+    margin: 25px;
+}
+
+.masaipaymentGateway input[type="submit"]:hover {
+    background-color: rgba(0, 0, 255, 0.808);
+    color: #fff;
+
+}
+.masaipaymentGateway div{
+    display: flex;
+    justify-content: end;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.masaipaymentGateway div label{
+    cursor: pointer;
+    padding: 5px;
+}
+
+#playvidothim{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Deshbord</title>
     <link rel="stylesheet" href="../assist/style/dashbord.css">
+    <link rel="icon" sizes="32x32" href="https://d27028dliefpk3.cloudfront.net/assets/favicon/favicon-32x32.png"
+        class="jsx-397bb7cff0cecce7">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -18,6 +20,16 @@
                 <img src="https://www.masaischool.com/img/navbar/logo.svg" alt="">
             </div>
             <div>
+                <a href="#allCourses">
+                    <p href="./">All COURSES</p>
+                </a>
+                <a href="#myCourses">
+                    <p href="./">My COURSES</p>
+                </a>
+                <p onclick="openButton('.seeAllClassMyCoursesAddCardVideo')">My Cart</p>
+                <a href="#favoriteCourses">
+                    <p>My favorite</p>
+                </a>
                 <span>
                     <p onclick="profileOptionsShowFun()">profile </p><i class="fa fa-user"
                         onmouseenter="profileOptionsShowFun()"></i>
@@ -34,18 +46,58 @@
     <section class="dashbordoptionPartSection">
         <div class="seeTimeNow"></div>
         <h1>Hello <span id="usernameDisplayOption"></span> ! Welcome to our learning platform</h1>
- 
+        <div class="dashbordclassPartDiv">
+            <div>
+                <h1>Demo Class Video :</h1>
+                <div class="seeAllClassDemoVideo">
+                    <div>
+                        <iframe width="290" height="200" src="https://www.youtube.com/embed/b6oiWC9i7hY"
+                            title="Boost your career with Part-Time courses at Masai" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div>
+                        <iframe width="290" height="200" src="https://www.youtube.com/embed/aIVH2ZxvXmU"
+                            title="Full Stack Web Development Course for Beginners | Masai School" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div>
+                        <iframe width="290" height="200" src="https://www.youtube.com/embed/b6oiWC9i7hY"
+                            title="Boost your career with Part-Time courses at Masai" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div>
+                        <iframe width="290" height="200" src="https://www.youtube.com/embed/aIVH2ZxvXmU"
+                            title="Full Stack Web Development Course for Beginners | Masai School" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="myCourses">
+                <h1>My Courses :</h1>
+                <div id="seeAllClassMyCoursesVideo">
+
+                </div>
+            </div>
+            <div id="allCourses">
+                <h1>All Courses :</h1>
+                <div id="seeAllClassAllCoursesVideo">
+
+                </div>
+            </div>
+            <div id="favoriteCourses">
+                <h1>My Favorite Courses &#10084; :</h1>
+                <div id="seeAllClassFavoriteCoursesVideo">
+
+                </div>
+            </div>
+        </div>
     </section>
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -96,6 +148,51 @@
         </div>
     </section>
 
+    <section class="seeAllClassMyCoursesAddCardVideo userfillform">
+        <span class="closeButtonOption" onclick="closeButton('.seeAllClassMyCoursesAddCardVideo')">X</span>
+        <div id="seeAllClassMyCoursesAddCardVideo">
+
+        </div>
+    </section>
+
+    <section class="masaipaymentGateway userfillform">
+        <span class="closeButtonOption" onclick="closeButton('.masaipaymentGateway')">X</span>
+        
+        <div class="form" id="paymentGateway">
+            <h1>Masai Payment Gateway</h1>
+            <label for="">Card Number</label>
+            <input type="number" id="cardNum" placeholder="Enter Card 16 Digit Number" required="required" value="">
+
+            <label for="">CVV</label>
+            <input type="number" id="cardCvv" placeholder="Enter CVV Number" required="required" value="">
+
+            <label for="">Expiry Date</label>
+            <input type="text" id="cardDate" placeholder="Enter Expiry Date" required="required" value="">
+
+            <label for="">Name</label>
+            <input type="text" id="cardName" placeholder="Enter Card Holder Name" value="">
+            
+            <div id="otppartres">
+                <label for="" id="sendOtp">SEND OTP</label>
+            </div>
+
+            <input type="submit" id="makePay" value="">
+        </div>
+    </section>
+
+    <section class="openCoursesvideoclassgroup userfillform">
+        <span class="closeButtonOption" onclick="closeButton('.openCoursesvideoclassgroup')">X</span>
+        <div id="openCoursesvideoclasses">
+
+        </div>
+    </section>
+
+    <section class="playvidothimclassgroup userfillform">
+        <span class="closeButtonOption" onclick="closeButton('.playvidothimclassgroup')">X</span>
+        <div id="playvidothim">
+
+        </div>
+    </section>
 </body>
 <script src="../server/js/checkuserloginornot.js"></script>
 <script src="../server/js/studentpart.js"></script>
