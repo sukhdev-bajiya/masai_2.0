@@ -1,8 +1,8 @@
 setInterval(() => {
-  checkUserOrNOt()
+  checkUserOrNOt();
 }, 2000);
-checkUserOrNOt()
-function checkUserOrNOt(){
+checkUserOrNOt();
+function checkUserOrNOt() {
   let flag = JSON.parse(localStorage.getItem("myuserpasscode"));
   if (flag == null || flag.length == 0 || flag == undefined) {
     window.open("./login.html", "_self");
@@ -16,7 +16,7 @@ function checkUserOrNOt(){
       let url;
       if (mycheck === "MSU") {
         url = `http://localhost:3000/studentLoginData/${flag[0]}`;
-      }else{
+      } else {
         window.open("./login.html", "_self");
       }
       let res = await fetch(url);
@@ -29,8 +29,6 @@ function checkUserOrNOt(){
     }
   }
 }
-
-
 
 function logoutfunforall() {
   localStorage.clear();
@@ -117,7 +115,7 @@ async function dishplayDataAllCourses1() {
 async function opeanclassesmycourses(id) {
   try {
     document.getElementById("openCoursesvideoclasses").innerHTML = "";
-    openButton(".openCoursesvideoclassgroup")
+    openButton(".openCoursesvideoclassgroup");
     let res = await fetch(`http://localhost:3000/coures/${id}`);
     let users = await res.json();
     users.coursesLecture.forEach((ele, ind) => {
@@ -126,7 +124,9 @@ async function opeanclassesmycourses(id) {
       <h5>${ele.lectureAdout.slice(0, 100)}....</h5>
       <span></span>
       <div>
-      <button onclick="openplayerclass(${users.id}, ${ind})">Play Class &#128214;</button>
+      <button onclick="openplayerclass(${
+        users.id
+      }, ${ind})">Play Class &#128214;</button>
       </div>
       <span></span>
       `;
@@ -139,26 +139,25 @@ async function opeanclassesmycourses(id) {
     console.log(error);
   }
 }
-async function openplayerclass(id, ind){
+async function openplayerclass(id, ind) {
   try {
     document.getElementById("openCoursesvideoclasses").innerHTML = "";
     openButton(".playvidothimclassgroup");
     let res = await fetch(`http://localhost:3000/coures/${id}`);
     let users = await res.json();
 
-    let val = users.coursesLecture[ind].lectureUrl
+    let val = users.coursesLecture[ind].lectureUrl;
 
-      document.getElementById("playvidothim").innerHTML=`
-      <h1>${ind+1}. ${users.coursesLecture[ind].lectureName} - [${users.coursesName}]</h1>
+    document.getElementById("playvidothim").innerHTML = `
+      <h1>${ind + 1}. ${users.coursesLecture[ind].lectureName} - [${
+      users.coursesName
+    }]</h1>
       <iframe width="842" height="455" src="https://www.youtube.com/embed/${val}" title="Boost your career with Part-Time courses at Masai" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       
       <p>${users.coursesLecture[ind].lectureAdout}</p>`;
   } catch (error) {
     console.log(error);
   }
-
-
-
 }
 
 // ===================================================
@@ -197,7 +196,7 @@ async function dishplayDataAllCourses2() {
         ele.coursesFavorite
       })"><img src="${imgUrl2}" alt="" onclick="addCoursesToCartList(${
         ele.id
-      }, ${ele.coursesCart})">
+      }, ${ele.coursesCart}, ${ele.coursesPrech})">
       </div>
       `;
       let ContantCont = document.createElement("div");
@@ -245,7 +244,7 @@ async function dishplayDataAllCourses3() {
         ele.coursesFavorite
       })"><img src="${imgUrl2}" alt="" onclick="addCoursesToCartList(${
         ele.id
-      }, ${ele.coursesCart})">
+      }, ${ele.coursesCart}, ${ele.coursesPrech})">
       </div>
       `;
       let ContantCont = document.createElement("div");
@@ -338,12 +337,18 @@ function addCoursesToAddFevList(id, val) {
 //  Add and remove cart Courses
 // ===================================================
 // ===================================================
-function addCoursesToCartList(id, val) {
-  let flag;
+function addCoursesToCartList(id, val, buy) {
+  let flag = val;
   if (val) {
     flag = false;
   } else {
-    flag = true;
+    if (buy) {
+      alert(
+        `You have already purchased this course, please visit my courses`
+      );
+    } else {
+      flag = true;
+    }
   }
   fetch(`http://localhost:3000/coures/${id}`, {
     method: "PATCH",

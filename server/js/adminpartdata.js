@@ -293,6 +293,7 @@ function dataTablecouresLectureListFun(users) {
       }),
       headers: { "Content-Type": "application/json" },
     });
+    alert("Lecture Data upload successfully");
   } else {
     alert("Enter Lecture Data");
   }

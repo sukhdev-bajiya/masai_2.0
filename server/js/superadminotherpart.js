@@ -377,6 +377,7 @@ function creatCouresFunByOWN(user) {
         headers: { "Content-Type": "application/json" },
       });
     }
+    alert("Course upload successfully");
   } else {
     alert("Enter Course Data");
   }
@@ -457,6 +458,7 @@ function dataTablecouresLectureListFun(users) {
       }),
       headers: { "Content-Type": "application/json" },
     });
+    alert("Lecture Data upload successfully");
   } else {
     alert("Enter Lecture Data");
   }

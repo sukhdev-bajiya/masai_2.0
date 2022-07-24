@@ -69,7 +69,7 @@
       "coursesAbout": "Start your coding career and become an industry-ready Full Stack Web Developer in India's ever-growing technology job market.",
       "coursesFavorite": false,
       "coursesCart": false,
-      "coursesPrech": true,
+      "coursesPrech": false,
       "coursesLecture": [
         {
           "lectureName": "Intro java",
@@ -92,7 +92,7 @@
       "coursesAbout": "Break into the fast-growing field of Data Analytics and launch yourself into a variety of roles like Business Intelligence Analyst, Data Analyst & Data Scientist among others.",
       "coursesFavorite": false,
       "coursesCart": false,
-      "coursesPrech": false,
+      "coursesPrech": true,
       "coursesLecture": [
         {
           "lectureName": "Excel Intro",
@@ -111,9 +111,9 @@
     },
     {
       "coursesName": "Design",
-      "coursesFees": "0",
+      "coursesFees": "250000",
       "coursesAbout": "Become the catalyst that bridges the interaction between humans and computers by landing job roles in UI Design, UX Design, Product Design among many others.",
-      "coursesFavorite": false,
+      "coursesFavorite": true,
       "coursesCart": false,
       "coursesPrech": true,
       "coursesLecture": [
