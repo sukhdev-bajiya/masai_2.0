@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masai School 2.0 || Login page</title>
+
+    <style>
+        body {
+            background-image: url(https://images.unsplash.com/photo-1550439062-609e1531270e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
+            overflow: hidden;
+            width: 100%;
+            height: 100vh;
+            margin: 0;
+            background-size: 100%;
+
+        }
+
+        .logo {
+            position: fixed;
+            right: 530px;
+            top: 51px;
+        }
+
+        .logo img {
+            height: 100px;
+        }
+
+        section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            width: 400px;
+            height: 500px;
+            background-color: white;
+            bottom: 50px;
+            right: 50px;
+            border-radius: 15px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+            text-transform: uppercase;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        a {
+            text-decoration: none;
+
+        }
+
+        a:hover {}
+
+        button {
+            width: 300px;
+            padding: 10px;
+            text-transform: uppercase;
+            font-size: 20px;
+            margin: 15px 0;
+            border-radius: 15px;
+            border: none;
+            font-weight: 600;
+            color: white;
+            background-image: linear-gradient(rgba(0, 0, 255, 0.205), rgba(255, 0, 0, 0.212));
+            cursor: pointer;
+        }
+
+        button:hover {
+            color: blue;
+            background-image: linear-gradient(rgba(255, 0, 0, 0.212), rgba(0, 0, 255, 0.205));
+        }
+    </style>
+</head>
+
+<body>
+    <div class="logo">
+        <a href="../index.html"><img src="https://sso.masaischool.com/brand_dark.svg" alt="Masai School"></a>
+    </div>
+    <section>
+        <img src="https://www.readermaster.com/wp-content/uploads/2018/11/click-here.gif" alt="">
+        <p>If you are a student login with </p>
+        <a href="./students/login.html"><button>Student Login</button></a>
+        <p>for curriculum teams</p>
+        <a href="./admin/login.html"><button>Admin Login</button></a>
+        <a href="./superadmin/login.html"><button>Super Admin Login</button></a>
+    </section>
+
+</body>
+
+
+</html>

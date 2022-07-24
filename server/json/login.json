@@ -1,0 +1,136 @@
+{
+  "studentLoginData": [
+    {
+      "name": "masai demo",
+      "password": "123456",
+      "email": "masai@school.com",
+      "phone": "9876543210",
+      "gender": "male",
+      "address": "India",
+      "dateOfBirth": "2022-07-21",
+      "userLogID": "MSU_1658413592310",
+      "id": 1
+    },
+    {
+      "name": "masai demo",
+      "password": "123456",
+      "email": "demo@gmail.com",
+      "phone": "9876543211",
+      "gender": "male",
+      "address": "jaipur",
+      "dateOfBirth": "2022-07-20",
+      "userLogID": "MSU_1658420681193",
+      "id": 2
+    },
+    {
+      "email": "demoa@gmail.com",
+      "phone": "987654",
+      "password": "123456",
+      "userLogID": "MSU_1658488243109",
+      "id": 3,
+      "name": "sukhdev bajiya",
+      "gender": "male",
+      "address": "jaipur",
+      "dateOfBirth": "2022-07-22"
+    }
+  ],
+  "superAdminLoginData": [
+    {
+      "id": 1,
+      "name": "masai school",
+      "userName": "superadmin",
+      "password": "123456",
+      "email": "superadmin@masai.com",
+      "phone": "9876543210",
+      "dateOfBirth": "2018-01-01",
+      "userLogID": "SAU_1658319733856",
+      "gender": "male",
+      "address": "India"
+    }
+  ],
+  "adminLoginData": [
+    {
+      "name": "masai schoole",
+      "userName": "admin",
+      "password": "123456",
+      "email": "admin@masaischool.com",
+      "phone": "9876543210",
+      "gender": "male",
+      "address": "India",
+      "dateOfBirth": "2022-07-21",
+      "userLogID": "MAU_1658413662910",
+      "id": 1
+    }
+  ],
+  "coures": [
+    {
+      "coursesName": "Software Development",
+      "coursesFees": "500000",
+      "coursesAbout": "Start your coding career and become an industry-ready Full Stack Web Developer in India's ever-growing technology job market.",
+      "coursesFavorite": false,
+      "coursesCart": false,
+      "coursesPrech": false,
+      "coursesLecture": [
+        {
+          "lectureName": "Intro java",
+          "lectureUrl": "ntLJmHOJ0ME",
+          "lectureAdout": "java",
+          "id": 1658420398415
+        },
+        {
+          "lectureName": "JEX",
+          "lectureUrl": "ntLJmHOJ0ME",
+          "lectureAdout": "java",
+          "id": 1658420582595
+        }
+      ],
+      "id": 1
+    },
+    {
+      "coursesName": "Data Analytics",
+      "coursesFees": "500000",
+      "coursesAbout": "Break into the fast-growing field of Data Analytics and launch yourself into a variety of roles like Business Intelligence Analyst, Data Analyst & Data Scientist among others.",
+      "coursesFavorite": false,
+      "coursesCart": false,
+      "coursesPrech": true,
+      "coursesLecture": [
+        {
+          "lectureName": "Excel Intro",
+          "lectureUrl": "rwbho0CgEAE",
+          "lectureAdout": "excel",
+          "id": 1658420464200
+        },
+        {
+          "lectureName": "Excel ",
+          "lectureUrl": "rwbho0CgEAE",
+          "lectureAdout": "excel",
+          "id": 1658425549550
+        }
+      ],
+      "id": 2
+    },
+    {
+      "coursesName": "Design",
+      "coursesFees": "250000",
+      "coursesAbout": "Become the catalyst that bridges the interaction between humans and computers by landing job roles in UI Design, UX Design, Product Design among many others.",
+      "coursesFavorite": true,
+      "coursesCart": false,
+      "coursesPrech": true,
+      "coursesLecture": [
+        {
+          "lectureName": "CorelDRAW Intro",
+          "lectureUrl": "K0xge7JAUEo",
+          "lectureAdout": "corelDRAW ",
+          "id": 1658420519689
+        },
+        {
+          "lectureName": "CorelDRAW",
+          "lectureUrl": "K0xge7JAUEo",
+          "lectureAdout": "corelDRAW",
+          "id": 1658420629278
+        }
+      ],
+      "id": 3
+    }
+  ]
+}
