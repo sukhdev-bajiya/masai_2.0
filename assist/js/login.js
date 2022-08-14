@@ -3,25 +3,26 @@ document.querySelector("form").addEventListener("submit", getMyDataFromApi);
 async function getMyDataFromApi(event) {
   event.preventDefault();
   try {
-    let res = await fetch("http://localhost:3000/studentLoginData");
+    let res = await fetch(
+      "https://jsonservermasai.herokuapp.com/studentLoginData"
+    );
     users = await res.json();
     // console.log(users);
-    findUserData(users)
+    findUserData(users);
   } catch (err) {
     console.log(err);
   }
 }
 
 function findUserData(users) {
-   
   let userEmail = document.getElementById("logEmail").value;
   let userPass = document.getElementById("logPass").value;
   let UserLoginOrNOt = false;
-  users.forEach(ele => {
+  users.forEach((ele) => {
     // console.log(ele)
-    if(ele.email === userEmail && ele.password === userPass){
+    if (ele.email === userEmail && ele.password === userPass) {
       UserLoginOrNOt = true;
-      let myuserpasscode = [ele.id , ele.userLogID]
+      let myuserpasscode = [ele.id, ele.userLogID];
       localStorage.setItem("myuserpasscode", JSON.stringify(myuserpasscode));
     }
   });
@@ -34,7 +35,6 @@ function findUserData(users) {
     setTimeout(() => {
       window.open("./dashbord.html", "_self");
     }, 500);
-    
   } else {
     alert("wrong credentials");
   }

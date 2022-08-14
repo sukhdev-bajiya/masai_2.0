@@ -67,7 +67,7 @@
       "coursesName": "Software Development",
       "coursesFees": "500000",
       "coursesAbout": "Start your coding career and become an industry-ready Full Stack Web Developer in India's ever-growing technology job market.",
-      "coursesFavorite": false,
+      "coursesFavorite": true,
       "coursesCart": false,
       "coursesPrech": false,
       "coursesLecture": [
@@ -113,7 +113,7 @@
       "coursesName": "Design",
       "coursesFees": "250000",
       "coursesAbout": "Become the catalyst that bridges the interaction between humans and computers by landing job roles in UI Design, UX Design, Product Design among many others.",
-      "coursesFavorite": true,
+      "coursesFavorite": false,
       "coursesCart": false,
       "coursesPrech": true,
       "coursesLecture": [
@@ -131,6 +131,26 @@
         }
       ],
       "id": 3
+    },
+    {
+      "coursesName": "jkghk",
+      "coursesFees": "654564",
+      "coursesAbout": "hkhk",
+      "coursesFavorite": false,
+      "coursesCart": false,
+      "coursesPrech": false,
+      "coursesLecture": [],
+      "id": 5
+    },
+    {
+      "coursesName": "kjhgjk",
+      "coursesFees": "545",
+      "coursesAbout": "jl",
+      "coursesFavorite": false,
+      "coursesCart": false,
+      "coursesPrech": false,
+      "coursesLecture": [],
+      "id": 6
     }
   ]
 }

@@ -23,11 +23,11 @@ async function updatepassworduserfun() {
     let mycheck = flagDashbordP[1].slice(0, 3);
     let url;
     if (mycheck === "SAU") {
-      url = `http://localhost:3000/superAdminLoginData/${flagDashbordP[0]}`;
+      url = `https://jsonservermasai.herokuapp.com/superAdminLoginData/${flagDashbordP[0]}`;
     } else if (mycheck === "MAU") {
-      url = `http://localhost:3000/adminLoginData/${flagDashbordP[0]}`;
+      url = `https://jsonservermasai.herokuapp.com/adminLoginData/${flagDashbordP[0]}`;
     } else {
-      url = `http://localhost:3000/studentLoginData/${flagDashbordP[0]}`;
+      url = `https://jsonservermasai.herokuapp.com/studentLoginData/${flagDashbordP[0]}`;
     }
     let res = await fetch(url);
     users = await res.json();
@@ -54,11 +54,11 @@ function updatepassword(newpass) {
   let mycheck = flagDashbordP[1].slice(0, 3);
   let url;
   if (mycheck === "SAU") {
-    url = `http://localhost:3000/superAdminLoginData/${flagDashbordP[0]}`;
+    url = `https://jsonservermasai.herokuapp.com/superAdminLoginData/${flagDashbordP[0]}`;
   } else if (mycheck === "MAU") {
-    url = `http://localhost:3000/adminLoginData/${flagDashbordP[0]}`;
+    url = `https://jsonservermasai.herokuapp.com/adminLoginData/${flagDashbordP[0]}`;
   } else {
-    url = `http://localhost:3000/studentLoginData/${flagDashbordP[0]}`;
+    url = `https://jsonservermasai.herokuapp.com/studentLoginData/${flagDashbordP[0]}`;
   }
 
   fetch(url, {
@@ -81,11 +81,11 @@ function updateprofiledata() {
   let mycheck = flagDashbordP[1].slice(0, 3);
   let url;
   if (mycheck === "SAU") {
-    url = `http://localhost:3000/superAdminLoginData/${flagDashbordP[0]}`;
+    url = `https://jsonservermasai.herokuapp.com/superAdminLoginData/${flagDashbordP[0]}`;
   } else if (mycheck === "MAU") {
-    url = `http://localhost:3000/adminLoginData/${flagDashbordP[0]}`;
+    url = `https://jsonservermasai.herokuapp.com/adminLoginData/${flagDashbordP[0]}`;
   } else {
-    url = `http://localhost:3000/studentLoginData/${flagDashbordP[0]}`;
+    url = `https://jsonservermasai.herokuapp.com/studentLoginData/${flagDashbordP[0]}`;
   }
 
   fetch(url, {
@@ -112,11 +112,11 @@ async function displayuserprofile() {
   let mycheck = flagDashbordP[1].slice(0, 3);
   let url;
   if (mycheck === "SAU") {
-    url = `http://localhost:3000/superAdminLoginData/${flagDashbordP[0]}`;
+    url = `https://jsonservermasai.herokuapp.com/superAdminLoginData/${flagDashbordP[0]}`;
   } else if (mycheck === "MAU") {
-    url = `http://localhost:3000/adminLoginData/${flagDashbordP[0]}`;
+    url = `https://jsonservermasai.herokuapp.com/adminLoginData/${flagDashbordP[0]}`;
   } else {
-    url = `http://localhost:3000/studentLoginData/${flagDashbordP[0]}`;
+    url = `https://jsonservermasai.herokuapp.com/studentLoginData/${flagDashbordP[0]}`;
   }
   let user;
   try {

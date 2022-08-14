@@ -3,7 +3,9 @@ document.querySelector("form").addEventListener("submit", getMyDataFromApi);
 async function getMyDataFromApi(event) {
   event.preventDefault();
   try {
-    let res = await fetch("http://localhost:3000/studentLoginData");
+    let res = await fetch(
+      "https://jsonservermasai.herokuapp.com/studentLoginData"
+    );
     users = await res.json();
     // console.log(users);
     addUserData(users);
@@ -29,13 +31,13 @@ function addUserData(alreadUserList) {
     alert("User Already Exists");
   } else {
     let userLog = `MSU_${Date.now()}`;
-    fetch("http://localhost:3000/studentLoginData", {
+    fetch("https://jsonservermasai.herokuapp.com/studentLoginData", {
       method: "POST",
       body: JSON.stringify({
         email: userEmail,
         phone: userNumber,
         password: userPass,
-        userLogID: userLog
+        userLogID: userLog,
       }),
       headers: { "Content-Type": "application/json" },
     });
@@ -48,8 +50,6 @@ function addUserData(alreadUserList) {
   email.value = "";
   mobile.value = "";
   password.value = "";
-  
-  
 }
 
 function seePass() {

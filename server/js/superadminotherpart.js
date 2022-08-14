@@ -1,8 +1,8 @@
 setInterval(() => {
-  checkUserOrNOt()
+  checkUserOrNOt();
 }, 2000);
-checkUserOrNOt()
-function checkUserOrNOt(){
+checkUserOrNOt();
+function checkUserOrNOt() {
   let flag = JSON.parse(localStorage.getItem("myuserpasscode"));
   if (flag == null || flag.length == 0 || flag == undefined) {
     window.open("./login.html", "_self");
@@ -15,8 +15,8 @@ function checkUserOrNOt(){
       let mycheck = flag[1].slice(0, 3);
       let url;
       if (mycheck === "SAU") {
-        url = `http://localhost:3000/superAdminLoginData/${flag[0]}`;
-      }else{
+        url = `https://jsonservermasai.herokuapp.com/superAdminLoginData/${flag[0]}`;
+      } else {
         window.open("./login.html", "_self");
       }
       let res = await fetch(url);
@@ -28,7 +28,7 @@ function checkUserOrNOt(){
       console.log(err);
     }
   }
-};
+}
 
 function logoutfunforall() {
   localStorage.clear();
@@ -38,7 +38,9 @@ dishplayallDataSuFun();
 
 async function dishplayallDataSuFun() {
   try {
-    let res = await fetch("http://localhost:3000/superAdminLoginData/1");
+    let res = await fetch(
+      "https://jsonservermasai.herokuapp.com/superAdminLoginData/1"
+    );
     allData = await res.json();
     document.getElementById("usernameDisplayOption").innerHTML = users.name;
   } catch (err2) {
@@ -75,7 +77,7 @@ dishplayDataAllCourses1();
 async function dishplayDataAllCourses1() {
   document.getElementById("seeAllClassMyCoursesVideo").innerHTML = "";
   try {
-    let res = await fetch(`http://localhost:3000/coures`);
+    let res = await fetch(`https://jsonservermasai.herokuapp.com/coures`);
     let users = await res.json();
 
     users.forEach((ele) => {
@@ -92,9 +94,7 @@ async function dishplayDataAllCourses1() {
       `;
       let ContantCont = document.createElement("div");
       ContantCont.innerHTML = mydata;
-        document
-          .getElementById("seeAllClassMyCoursesVideo")
-          .append(ContantCont);
+      document.getElementById("seeAllClassMyCoursesVideo").append(ContantCont);
     });
   } catch (error) {
     console.log(error);
@@ -104,8 +104,8 @@ async function dishplayDataAllCourses1() {
 async function opeanclassesmycourses(id) {
   try {
     document.getElementById("openCoursesvideoclasses").innerHTML = "";
-    openButton(".openCoursesvideoclassgroup")
-    let res = await fetch(`http://localhost:3000/coures/${id}`);
+    openButton(".openCoursesvideoclassgroup");
+    let res = await fetch(`https://jsonservermasai.herokuapp.com/coures/${id}`);
     let users = await res.json();
     users.coursesLecture.forEach((ele, ind) => {
       let mydata = `
@@ -113,7 +113,9 @@ async function opeanclassesmycourses(id) {
       <h5>${ele.lectureAdout.slice(0, 100)}....</h5>
       <span></span>
       <div>
-      <button onclick="openplayerclass(${users.id}, ${ind})">Play Class &#128214;</button>
+      <button onclick="openplayerclass(${
+        users.id
+      }, ${ind})">Play Class &#128214;</button>
       </div>
       <span></span>
       `;
@@ -126,37 +128,26 @@ async function opeanclassesmycourses(id) {
     console.log(error);
   }
 }
-async function openplayerclass(id, ind){
+async function openplayerclass(id, ind) {
   try {
     document.getElementById("openCoursesvideoclasses").innerHTML = "";
     openButton(".playvidothimclassgroup");
-    let res = await fetch(`http://localhost:3000/coures/${id}`);
+    let res = await fetch(`https://jsonservermasai.herokuapp.com/coures/${id}`);
     let users = await res.json();
 
-    let val = users.coursesLecture[ind].lectureUrl
+    let val = users.coursesLecture[ind].lectureUrl;
 
-      document.getElementById("playvidothim").innerHTML=`
-      <h1>${ind+1}. ${users.coursesLecture[ind].lectureName} - [${users.coursesName}]</h1>
+    document.getElementById("playvidothim").innerHTML = `
+      <h1>${ind + 1}. ${users.coursesLecture[ind].lectureName} - [${
+      users.coursesName
+    }]</h1>
       <iframe width="842" height="455" src="https://www.youtube.com/embed/${val}" title="Boost your career with Part-Time courses at Masai" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       
       <p>${users.coursesLecture[ind].lectureAdout}</p>`;
   } catch (error) {
     console.log(error);
   }
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
 
 // =================================================
 // =================================================
@@ -165,7 +156,9 @@ async function openplayerclass(id, ind){
 // =================================================
 async function creatAdminUser() {
   try {
-    let res = await fetch("http://localhost:3000/adminLoginData");
+    let res = await fetch(
+      "https://jsonservermasai.herokuapp.com/adminLoginData"
+    );
     users = await res.json();
     addAdminUserData(users);
   } catch (err) {
@@ -193,7 +186,7 @@ function addAdminUserData(alreadUserList) {
   if (UserLoginOrNOt) {
     alert("User Already Exists");
   } else {
-    fetch("http://localhost:3000/adminLoginData", {
+    fetch("https://jsonservermasai.herokuapp.com/adminLoginData", {
       method: "POST",
       body: JSON.stringify({
         name: name,
@@ -210,13 +203,18 @@ function addAdminUserData(alreadUserList) {
     });
     creatAdminUserShowList();
     alert("Add member successfully");
+    setTimeout(() => {
+      location.reload();
+    }, 2000);
   }
 }
 
 creatAdminUserShowList();
 async function creatAdminUserShowList() {
   try {
-    let res = await fetch("http://localhost:3000/adminLoginData");
+    let res = await fetch(
+      "https://jsonservermasai.herokuapp.com/adminLoginData"
+    );
     let users = await res.json();
     dataTableAdminListFun(users);
   } catch (err) {
@@ -242,11 +240,14 @@ function dataTableAdminListFun(users) {
 }
 
 function dataTableAdminListRemove(id) {
-  fetch(`http://localhost:3000/adminLoginData/${id}`, {
+  fetch(`https://jsonservermasai.herokuapp.com/adminLoginData/${id}`, {
     method: "DELETE",
     body: JSON.stringify({}),
     headers: { "Content-Type": "application/json" },
   });
+  setTimeout(() => {
+    location.reload();
+  }, 2000);
 }
 
 // =================================================
@@ -257,7 +258,9 @@ function dataTableAdminListRemove(id) {
 
 async function creatStudentUser() {
   try {
-    let res = await fetch("http://localhost:3000/studentLoginData");
+    let res = await fetch(
+      "https://jsonservermasai.herokuapp.com/studentLoginData"
+    );
     users = await res.json();
     addStudentUserData(users);
   } catch (err) {
@@ -285,7 +288,7 @@ function addStudentUserData(alreadUserList) {
   if (UserLoginOrNOt) {
     alert("User Already Exists");
   } else {
-    fetch("http://localhost:3000/studentLoginData", {
+    fetch("https://jsonservermasai.herokuapp.com/studentLoginData", {
       method: "POST",
       body: JSON.stringify({
         name: name,
@@ -301,13 +304,18 @@ function addStudentUserData(alreadUserList) {
     });
     creatStudentUserShowList();
     alert("Add member successfully");
+    setTimeout(() => {
+      location.reload();
+    }, 2000);
   }
 }
 
 creatStudentUserShowList();
 async function creatStudentUserShowList() {
   try {
-    let res = await fetch("http://localhost:3000/studentLoginData");
+    let res = await fetch(
+      "https://jsonservermasai.herokuapp.com/studentLoginData"
+    );
     let users = await res.json();
     dataTableStudentListFun(users);
   } catch (err) {
@@ -332,16 +340,19 @@ function dataTableStudentListFun(users) {
   });
 }
 function dataTableStudentListRemove(id) {
-  fetch(`http://localhost:3000/studentLoginData/${id}`, {
+  fetch(`https://jsonservermasai.herokuapp.com/studentLoginData/${id}`, {
     method: "DELETE",
     body: JSON.stringify({}),
     headers: { "Content-Type": "application/json" },
   });
+  setTimeout(() => {
+    location.reload();
+  }, 2000);
 }
 
 async function creatCouresFun() {
   try {
-    let res = await fetch("http://localhost:3000/coures");
+    let res = await fetch("https://jsonservermasai.herokuapp.com/coures");
     let user = await res.json();
     creatCouresFunByOWN(user);
   } catch (err) {
@@ -363,7 +374,7 @@ function creatCouresFunByOWN(user) {
     if (listOrNOt) {
       alert("Coures Already Exists");
     } else {
-      fetch("http://localhost:3000/coures", {
+      fetch("https://jsonservermasai.herokuapp.com/coures", {
         method: "POST",
         body: JSON.stringify({
           coursesName: coursesName,
@@ -378,6 +389,9 @@ function creatCouresFunByOWN(user) {
       });
     }
     alert("Course upload successfully");
+    setTimeout(() => {
+      location.reload();
+    }, 2000);
   } else {
     alert("Enter Course Data");
   }
@@ -386,7 +400,7 @@ function creatCouresFunByOWN(user) {
 creatcouresUserShowList();
 async function creatcouresUserShowList() {
   try {
-    let res = await fetch("http://localhost:3000/coures");
+    let res = await fetch("https://jsonservermasai.herokuapp.com/coures");
     let users = await res.json();
     dataTablecouresListFun(users);
   } catch (err) {
@@ -415,18 +429,23 @@ function dataTablecouresListFun(users) {
 }
 
 function dataTableCouresListRemove(id) {
-  fetch(`http://localhost:3000/coures/${id}`, {
+  fetch(`https://jsonservermasai.herokuapp.com/coures/${id}`, {
     method: "DELETE",
     body: JSON.stringify({}),
     headers: { "Content-Type": "application/json" },
   });
+  setTimeout(() => {
+    location.reload();
+  }, 2000);
 }
 
 async function creatcouresLectureUserShowList() {
   try {
     let id = document.getElementById("selectCoursesOption").value;
     if (id != "") {
-      let res = await fetch(`http://localhost:3000/coures/${id}`);
+      let res = await fetch(
+        `https://jsonservermasai.herokuapp.com/coures/${id}`
+      );
       let users = await res.json();
       dataTablecouresLectureListFun(users.coursesLecture);
     } else {
@@ -451,7 +470,7 @@ function dataTablecouresLectureListFun(users) {
     };
 
     users.push(obj);
-    fetch(`http://localhost:3000/coures/${id}`, {
+    fetch(`https://jsonservermasai.herokuapp.com/coures/${id}`, {
       method: "PATCH",
       body: JSON.stringify({
         coursesLecture: users,
@@ -459,6 +478,9 @@ function dataTablecouresLectureListFun(users) {
       headers: { "Content-Type": "application/json" },
     });
     alert("Lecture Data upload successfully");
+    setTimeout(() => {
+      location.reload();
+    }, 2000);
   } else {
     alert("Enter Lecture Data");
   }
@@ -467,7 +489,7 @@ function dataTablecouresLectureListFun(users) {
 dishPlaycreatcouresLectureUserShowList();
 async function dishPlaycreatcouresLectureUserShowList() {
   try {
-    let res = await fetch(`http://localhost:3000/coures`);
+    let res = await fetch(`https://jsonservermasai.herokuapp.com/coures`);
     let users = await res.json();
     dishPlaydataTablecouresLectureListFun(users);
   } catch (err) {
@@ -495,14 +517,16 @@ function dishPlaydataTablecouresLectureListFun(users) {
 }
 async function tableCouresLectureListRemoveFunbyDFun(objId, eleInd) {
   try {
-    let res = await fetch(`http://localhost:3000/coures/${objId}`);
+    let res = await fetch(
+      `https://jsonservermasai.herokuapp.com/coures/${objId}`
+    );
     let users = await res.json();
 
     let newArr = users.coursesLecture;
     console.log(newArr);
     newArr.splice(eleInd, 1);
     console.log(newArr);
-    fetch(`http://localhost:3000/coures/${objId}`, {
+    fetch(`https://jsonservermasai.herokuapp.com/coures/${objId}`, {
       method: "PATCH",
       body: JSON.stringify({
         coursesLecture: newArr,
@@ -511,6 +535,34 @@ async function tableCouresLectureListRemoveFunbyDFun(objId, eleInd) {
     });
 
     dishPlaycreatcouresLectureUserShowList();
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function dataTableCouresLectureListRemove(objId, eleInd) {
+  try {
+    let res = await fetch(
+      `https://jsonservermasai.herokuapp.com/coures/${objId}`
+    );
+    let users = await res.json();
+
+    let newArr = users.coursesLecture;
+
+    newArr.splice(eleInd, 1);
+
+    fetch(`https://jsonservermasai.herokuapp.com/coures/${objId}`, {
+      method: "PATCH",
+      body: JSON.stringify({
+        coursesLecture: newArr,
+      }),
+      headers: { "Content-Type": "application/json" },
+    });
+
+    dishPlaycreatcouresLectureUserShowList();
+    setTimeout(() => {
+      location.reload();
+    }, 2000);
   } catch (error) {
     console.log(error);
   }
