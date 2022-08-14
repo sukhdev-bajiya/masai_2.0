@@ -498,7 +498,7 @@ json-server --watch masai.json
 
 # Project
 > GitHub - [Code](https://github.com/sukhdev-bajiya/masai_2.0) <br>
-> Netlify - [Live demo](https://genuine-tartufo-521139.netlify.app) <br>
+> Netlify - [Live demo](https://masai2-0.netlify.app/) <br>
 > Hash node - [Blog](https://learnwithmasai.hashnode.dev/masai-20)
 # Technology Used
 > • HTML <br>
