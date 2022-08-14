@@ -1,6 +1,8 @@
 async function superAdminlogin789546() {
   try {
-    let res = await fetch("http://localhost:3000/superAdminLoginData");
+    let res = await fetch(
+      "https://jsonservermasai.herokuapp.com/superAdminLoginData"
+    );
     users = await res.json();
     // console.log(users);
     findUserData(users, "superadmin");
@@ -11,7 +13,9 @@ async function superAdminlogin789546() {
 
 async function adminlogin789546() {
   try {
-    let res = await fetch("http://localhost:3000/adminLoginData");
+    let res = await fetch(
+      "https://jsonservermasai.herokuapp.com/adminLoginData"
+    );
     users = await res.json();
     // console.log(users);
     findUserData(users, "admin");
@@ -35,9 +39,9 @@ function findUserData(users, typeOfUser) {
 
   if (UserLoginOrNOt) {
     alert("login successful");
-    if(typeOfUser=="admin"){
+    if (typeOfUser == "admin") {
       window.open("./dashbord.html", "_self");
-    }else{
+    } else {
       window.open("./dashbord.html", "_self");
     }
   } else {

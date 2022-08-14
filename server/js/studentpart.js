@@ -15,7 +15,7 @@ function checkUserOrNOt() {
       let mycheck = flag[1].slice(0, 3);
       let url;
       if (mycheck === "MSU") {
-        url = `http://localhost:3000/studentLoginData/${flag[0]}`;
+        url = `https://jsonservermasai.herokuapp.com/studentLoginData/${flag[0]}`;
       } else {
         window.open("./login.html", "_self");
       }
@@ -38,7 +38,7 @@ let flagDashborStudentdP = JSON.parse(localStorage.getItem("myuserpasscode"));
 profileupdateorNotcheck();
 async function profileupdateorNotcheck() {
   try {
-    let url = `http://localhost:3000/studentLoginData/${flagDashborStudentdP[0]}`;
+    let url = `https://jsonservermasai.herokuapp.com/studentLoginData/${flagDashborStudentdP[0]}`;
 
     let res = await fetch(url);
     users = await res.json();
@@ -84,7 +84,7 @@ dishplayDataAllCourses1();
 async function dishplayDataAllCourses1() {
   document.getElementById("seeAllClassMyCoursesVideo").innerHTML = "";
   try {
-    let res = await fetch(`http://localhost:3000/coures`);
+    let res = await fetch(`https://jsonservermasai.herokuapp.com/coures`);
     let users = await res.json();
 
     users.forEach((ele) => {
@@ -116,7 +116,7 @@ async function opeanclassesmycourses(id) {
   try {
     document.getElementById("openCoursesvideoclasses").innerHTML = "";
     openButton(".openCoursesvideoclassgroup");
-    let res = await fetch(`http://localhost:3000/coures/${id}`);
+    let res = await fetch(`https://jsonservermasai.herokuapp.com/coures/${id}`);
     let users = await res.json();
     users.coursesLecture.forEach((ele, ind) => {
       let mydata = `
@@ -143,7 +143,7 @@ async function openplayerclass(id, ind) {
   try {
     document.getElementById("openCoursesvideoclasses").innerHTML = "";
     openButton(".playvidothimclassgroup");
-    let res = await fetch(`http://localhost:3000/coures/${id}`);
+    let res = await fetch(`https://jsonservermasai.herokuapp.com/coures/${id}`);
     let users = await res.json();
 
     let val = users.coursesLecture[ind].lectureUrl;
@@ -170,7 +170,7 @@ dishplayDataAllCourses2();
 async function dishplayDataAllCourses2() {
   document.getElementById("seeAllClassAllCoursesVideo").innerHTML = "";
   try {
-    let res = await fetch(`http://localhost:3000/coures`);
+    let res = await fetch(`https://jsonservermasai.herokuapp.com/coures`);
     let users = await res.json();
 
     users.forEach((ele) => {
@@ -218,7 +218,7 @@ dishplayDataAllCourses3();
 async function dishplayDataAllCourses3() {
   document.getElementById("seeAllClassFavoriteCoursesVideo").innerHTML = "";
   try {
-    let res = await fetch(`http://localhost:3000/coures`);
+    let res = await fetch(`https://jsonservermasai.herokuapp.com/coures`);
     let users = await res.json();
 
     users.forEach((ele) => {
@@ -271,7 +271,7 @@ dishplayDataAllCourses4();
 async function dishplayDataAllCourses4() {
   document.getElementById("seeAllClassMyCoursesAddCardVideo").innerHTML = "";
   try {
-    let res = await fetch(`http://localhost:3000/coures`);
+    let res = await fetch(`https://jsonservermasai.herokuapp.com/coures`);
     let users = await res.json();
 
     users.forEach((ele) => {
@@ -320,7 +320,7 @@ function addCoursesToAddFevList(id, val) {
   } else {
     flag = true;
   }
-  fetch(`http://localhost:3000/coures/${id}`, {
+  fetch(`https://jsonservermasai.herokuapp.com/coures/${id}`, {
     method: "PATCH",
     body: JSON.stringify({
       coursesFavorite: flag,
@@ -343,14 +343,12 @@ function addCoursesToCartList(id, val, buy) {
     flag = false;
   } else {
     if (buy) {
-      alert(
-        `You have already purchased this course, please visit my courses`
-      );
+      alert(`You have already purchased this course, please visit my courses`);
     } else {
       flag = true;
     }
   }
-  fetch(`http://localhost:3000/coures/${id}`, {
+  fetch(`https://jsonservermasai.herokuapp.com/coures/${id}`, {
     method: "PATCH",
     body: JSON.stringify({
       coursesCart: flag,
@@ -404,7 +402,7 @@ function makepaymentnow(id) {
 }
 
 function purchachcourses(id) {
-  fetch(`http://localhost:3000/coures/${id}`, {
+  fetch(`https://jsonservermasai.herokuapp.com/coures/${id}`, {
     method: "PATCH",
     body: JSON.stringify({
       coursesCart: false,
