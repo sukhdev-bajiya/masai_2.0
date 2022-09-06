@@ -1,7 +1,7 @@
 async function superAdminlogin789546() {
   try {
     let res = await fetch(
-      "https://jsonservermasai.herokuapp.com/superAdminLoginData"
+      "https://masai-server.herokuapp.com/superAdminLoginData"
     );
     users = await res.json();
     // console.log(users);
@@ -13,9 +13,7 @@ async function superAdminlogin789546() {
 
 async function adminlogin789546() {
   try {
-    let res = await fetch(
-      "https://jsonservermasai.herokuapp.com/adminLoginData"
-    );
+    let res = await fetch("https://masai-server.herokuapp.com/adminLoginData");
     users = await res.json();
     // console.log(users);
     findUserData(users, "admin");
