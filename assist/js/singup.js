@@ -4,7 +4,7 @@ async function getMyDataFromApi(event) {
   event.preventDefault();
   try {
     let res = await fetch(
-      "https://jsonservermasai.herokuapp.com/studentLoginData"
+      "https://masai-server.herokuapp.com/studentLoginData"
     );
     users = await res.json();
     // console.log(users);
@@ -31,7 +31,7 @@ function addUserData(alreadUserList) {
     alert("User Already Exists");
   } else {
     let userLog = `MSU_${Date.now()}`;
-    fetch("https://jsonservermasai.herokuapp.com/studentLoginData", {
+    fetch("https://masai-server.herokuapp.com/studentLoginData", {
       method: "POST",
       body: JSON.stringify({
         email: userEmail,

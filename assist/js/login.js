@@ -4,7 +4,7 @@ async function getMyDataFromApi(event) {
   event.preventDefault();
   try {
     let res = await fetch(
-      "https://jsonservermasai.herokuapp.com/studentLoginData"
+      "https://masai-server.herokuapp.com/studentLoginData"
     );
     users = await res.json();
     // console.log(users);
