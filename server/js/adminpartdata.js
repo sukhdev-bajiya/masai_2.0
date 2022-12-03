@@ -15,7 +15,7 @@ function checkUserOrNOt() {
       let mycheck = flag[1].slice(0, 3);
       let url;
       if (mycheck === "MAU") {
-        url = `https://masai-server.herokuapp.com/adminLoginData/${flag[0]}`;
+        url = `https://jsonserver-twny.onrender.com/adminLoginData/${flag[0]}`;
       } else {
         window.open("./login.html", "_self");
       }
@@ -60,7 +60,7 @@ dishplayDataAllCourses1();
 async function dishplayDataAllCourses1() {
   document.getElementById("seeAllClassMyCoursesVideo").innerHTML = "";
   try {
-    let res = await fetch(`https://masai-server.herokuapp.com/coures`);
+    let res = await fetch(`https://jsonserver-twny.onrender.com/coures`);
     let users = await res.json();
 
     users.forEach((ele) => {
@@ -88,7 +88,7 @@ async function opeanclassesmycourses(id) {
   try {
     document.getElementById("openCoursesvideoclasses").innerHTML = "";
     openButton(".openCoursesvideoclassgroup");
-    let res = await fetch(`https://masai-server.herokuapp.com/coures/${id}`);
+    let res = await fetch(`https://jsonserver-twny.onrender.com/coures/${id}`);
     let users = await res.json();
     users.coursesLecture.forEach((ele, ind) => {
       let mydata = `
@@ -115,7 +115,7 @@ async function openplayerclass(id, ind) {
   try {
     document.getElementById("openCoursesvideoclasses").innerHTML = "";
     openButton(".playvidothimclassgroup");
-    let res = await fetch(`https://masai-server.herokuapp.com/coures/${id}`);
+    let res = await fetch(`https://jsonserver-twny.onrender.com/coures/${id}`);
     let users = await res.json();
 
     let val = users.coursesLecture[ind].lectureUrl;
@@ -141,7 +141,7 @@ async function openplayerclass(id, ind) {
 async function creatStudentUser() {
   try {
     let res = await fetch(
-      "https://masai-server.herokuapp.com/studentLoginData"
+      "https://jsonserver-twny.onrender.com/studentLoginData"
     );
     users = await res.json();
     // console.log(users);
@@ -172,7 +172,7 @@ function addStudentUserData(alreadUserList) {
   if (UserLoginOrNOt) {
     alert("User Already Exists");
   } else {
-    fetch("https://masai-server.herokuapp.com/studentLoginData", {
+    fetch("https://jsonserver-twny.onrender.com/studentLoginData", {
       method: "POST",
       body: JSON.stringify({
         name: name,
@@ -198,7 +198,7 @@ creatStudentUserShowList();
 async function creatStudentUserShowList() {
   try {
     let res = await fetch(
-      "https://masai-server.herokuapp.com/studentLoginData"
+      "https://jsonserver-twny.onrender.com/studentLoginData"
     );
     let users = await res.json();
     dataTableStudentListFun(users);
@@ -226,7 +226,7 @@ function dataTableStudentListFun(users) {
   });
 }
 function dataTableStudentListRemove(id) {
-  fetch(`https://masai-server.herokuapp.com/studentLoginData/${id}`, {
+  fetch(`https://jsonserver-twny.onrender.com/studentLoginData/${id}`, {
     method: "DELETE",
     body: JSON.stringify({}),
     headers: { "Content-Type": "application/json" },
@@ -241,7 +241,7 @@ dishplayallDataSuFun();
 async function dishplayallDataSuFun() {
   try {
     let res = await fetch(
-      `https://masai-server.herokuapp.com/superAdminLoginData/${
+      `https://jsonserver-twny.onrender.com/superAdminLoginData/${
         JSON.parse(localStorage.getItem("myuserpasscode"))[0]
       }`
     );
@@ -257,7 +257,9 @@ async function creatcouresLectureUserShowList() {
   try {
     let id = document.getElementById("selectCoursesOption").value;
     if (id != "") {
-      let res = await fetch(`https://masai-server.herokuapp.com/coures/${id}`);
+      let res = await fetch(
+        `https://jsonserver-twny.onrender.com/coures/${id}`
+      );
       let users = await res.json();
       dataTablecouresLectureListFun(users.coursesLecture);
     } else {
@@ -282,7 +284,7 @@ function dataTablecouresLectureListFun(users) {
     };
 
     users.push(obj);
-    fetch(`https://masai-server.herokuapp.com/coures/${id}`, {
+    fetch(`https://jsonserver-twny.onrender.com/coures/${id}`, {
       method: "PATCH",
       body: JSON.stringify({
         coursesLecture: users,
@@ -301,7 +303,7 @@ function dataTablecouresLectureListFun(users) {
 dishPlaycreatcouresLectureUserShowList();
 async function dishPlaycreatcouresLectureUserShowList() {
   try {
-    let res = await fetch(`https://masai-server.herokuapp.com/coures`);
+    let res = await fetch(`https://jsonserver-twny.onrender.com/coures`);
     let users = await res.json();
     dishPlaydataTablecouresLectureListFun(users);
   } catch (err) {
@@ -334,14 +336,16 @@ function dishPlaydataTablecouresLectureListFun(users) {
 
 async function dataTableCouresLectureListRemove(objId, eleInd) {
   try {
-    let res = await fetch(`https://masai-server.herokuapp.com/coures/${objId}`);
+    let res = await fetch(
+      `https://jsonserver-twny.onrender.com/coures/${objId}`
+    );
     let users = await res.json();
 
     let newArr = users.coursesLecture;
 
     newArr.splice(eleInd, 1);
 
-    fetch(`https://masai-server.herokuapp.com/coures/${objId}`, {
+    fetch(`https://jsonserver-twny.onrender.com/coures/${objId}`, {
       method: "PATCH",
       body: JSON.stringify({
         coursesLecture: newArr,

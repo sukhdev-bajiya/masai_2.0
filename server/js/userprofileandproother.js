@@ -23,11 +23,11 @@ async function updatepassworduserfun() {
     let mycheck = flagDashbordP[1].slice(0, 3);
     let url;
     if (mycheck === "SAU") {
-      url = `https://masai-server.herokuapp.com/superAdminLoginData/${flagDashbordP[0]}`;
+      url = `https://jsonserver-twny.onrender.com/superAdminLoginData/${flagDashbordP[0]}`;
     } else if (mycheck === "MAU") {
-      url = `https://masai-server.herokuapp.com/adminLoginData/${flagDashbordP[0]}`;
+      url = `https://jsonserver-twny.onrender.com/adminLoginData/${flagDashbordP[0]}`;
     } else {
-      url = `https://masai-server.herokuapp.com/studentLoginData/${flagDashbordP[0]}`;
+      url = `https://jsonserver-twny.onrender.com/studentLoginData/${flagDashbordP[0]}`;
     }
     let res = await fetch(url);
     users = await res.json();
@@ -54,11 +54,11 @@ function updatepassword(newpass) {
   let mycheck = flagDashbordP[1].slice(0, 3);
   let url;
   if (mycheck === "SAU") {
-    url = `https://masai-server.herokuapp.com/superAdminLoginData/${flagDashbordP[0]}`;
+    url = `https://jsonserver-twny.onrender.com/superAdminLoginData/${flagDashbordP[0]}`;
   } else if (mycheck === "MAU") {
-    url = `https://masai-server.herokuapp.com/adminLoginData/${flagDashbordP[0]}`;
+    url = `https://jsonserver-twny.onrender.com/adminLoginData/${flagDashbordP[0]}`;
   } else {
-    url = `https://masai-server.herokuapp.com/studentLoginData/${flagDashbordP[0]}`;
+    url = `https://jsonserver-twny.onrender.com/studentLoginData/${flagDashbordP[0]}`;
   }
 
   fetch(url, {
@@ -81,11 +81,11 @@ function updateprofiledata() {
   let mycheck = flagDashbordP[1].slice(0, 3);
   let url;
   if (mycheck === "SAU") {
-    url = `https://masai-server.herokuapp.com/superAdminLoginData/${flagDashbordP[0]}`;
+    url = `https://jsonserver-twny.onrender.com/superAdminLoginData/${flagDashbordP[0]}`;
   } else if (mycheck === "MAU") {
-    url = `https://masai-server.herokuapp.com/adminLoginData/${flagDashbordP[0]}`;
+    url = `https://jsonserver-twny.onrender.com/adminLoginData/${flagDashbordP[0]}`;
   } else {
-    url = `https://masai-server.herokuapp.com/studentLoginData/${flagDashbordP[0]}`;
+    url = `https://jsonserver-twny.onrender.com/studentLoginData/${flagDashbordP[0]}`;
   }
 
   fetch(url, {
@@ -112,11 +112,11 @@ async function displayuserprofile() {
   let mycheck = flagDashbordP[1].slice(0, 3);
   let url;
   if (mycheck === "SAU") {
-    url = `https://masai-server.herokuapp.com/superAdminLoginData/${flagDashbordP[0]}`;
+    url = `https://jsonserver-twny.onrender.com/superAdminLoginData/${flagDashbordP[0]}`;
   } else if (mycheck === "MAU") {
-    url = `https://masai-server.herokuapp.com/adminLoginData/${flagDashbordP[0]}`;
+    url = `https://jsonserver-twny.onrender.com/adminLoginData/${flagDashbordP[0]}`;
   } else {
-    url = `https://masai-server.herokuapp.com/studentLoginData/${flagDashbordP[0]}`;
+    url = `https://jsonserver-twny.onrender.com/studentLoginData/${flagDashbordP[0]}`;
   }
   let user;
   try {
